@@ -147,11 +147,18 @@ nav ul li a:hover, nav ul li a.active {
     background-color: var(--bg-light);
 }
 
-.features-overview h2, .feature-details h2 {
+.features-overview h2 {
     text-align: center;
     margin-bottom: 50px;
     font-size: 36px;
     color: var(--secondary-color);
+}
+
+.feature-details h2, .use-cases h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: black;
 }
 
 .features-grid {
@@ -255,4 +262,55 @@ nav ul li a:hover, nav ul li a.active {
     max-width: 700px;         
     margin: 2rem auto;        
   }
+
+.green-oval{
+  width: 300px;                 /* exact width  */
+  height: 150px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:1rem 2rem;
+  border-radius:9999px;
+  background:#25a749;
+  color:#fff;
+}
+
+.icon{font-size:1rem;margin-bottom:.4rem;}
+
+/* 2 columns on desktop, collapses to 1 on narrow screens */
+.use-case-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 2 equal-width columns */
+  grid-template-rows:    repeat(2, auto);  /* 2 rows (height grows with content) */
+  gap: 2rem;                                /* space between cells */
+  max-width: 1000px;                        /* optional centering box */
+  margin: 0 auto;                           /* centers the grid on the page */
+}
+
+/* optional: center everything in each cell */
+.use-case{
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial {
+  display: none;          /* start hidden       */
+  text-align: center;
+}
+
+.testimonial.active {
+  display: block;         /* show current card  */
+}
+
+/* (optional) little fade-in */
+.testimonial {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.testimonial.active { opacity: 1; }
+
+.testimonial-nav {
+    align-content: center;
+}
   
