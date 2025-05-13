@@ -124,6 +124,55 @@ nav ul li a:hover, nav ul li a.active {
     color: var(--light-text);
 }
 
+/* Comparison Table Styles */
+.comparison-table {
+    margin: 40px 0;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #333;
+    margin: 20px 0;
+}
+
+.comparison-table th {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.comparison-table td {
+    padding: 15px;
+    vertical-align: top;
+    border: 1px solid #333;
+}
+
+.comparison-table .challenge {
+    background-color: #e74c3c; /* Red shade */
+    color: white;
+}
+
+.comparison-table .solution {
+    background-color: #2ecc71; /* Green shade */
+    color: white;
+}
+
+.comparison-table h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.comparison-table p {
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* Button Styles */
 .cta-button {
     display: inline-block;
@@ -351,4 +400,3 @@ nav ul li a:hover, nav ul li a.active {
 
 .faq-answer.open { max-height: 800px; padding-bottom: 1rem; } /* big enough for any answer */
 
-  
