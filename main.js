@@ -70,4 +70,43 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/', { method:'POST', body:data })
       .catch(console.error);            // silent fail = still shows thank-you
   });
+<<<<<<< HEAD
 });
+=======
+});
+
+// Animate counting numbers
+function animateStats() {
+    const statValues = document.querySelectorAll('.stat-value');
+    
+    statValues.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const counter = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                clearInterval(counter);
+                stat.textContent = target + '%';
+            } else {
+                stat.textContent = Math.floor(current) + '%';
+            }
+        }, 16);
+    });
+}
+
+// Trigger when section is in view
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStats();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const resultsSection = document.querySelector('.results');
+if (resultsSection) observer.observe(resultsSection);
+>>>>>>> 6d9390974bc6512c906de70bd46a6314a6163ab5
