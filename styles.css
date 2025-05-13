@@ -269,6 +269,228 @@ nav ul li a:hover, nav ul li a.active {
 .comparison-row:nth-child(3) { animation-delay: 0.5s; }
 .comparison-row:nth-child(4) { animation-delay: 0.7s; }
 
+/* Results Section */
+.results {
+    padding: 80px 0;
+    background-color: #f5fbf6;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 25px;
+    width: 220px;
+    box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #25a749, #8BC34A);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #25a749;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.stat-label {
+    color: #495057;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+/* Animation for counting numbers */
+@keyframes countUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.stat-value {
+    animation: countUp 0.8s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        gap: 20px;
+    }
+    .stat-card {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* Experience CTA Section */
+.experience-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(37, 167, 73, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-cta .container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.cta-image {
+    flex: 1;
+    text-align: center;
+}
+
+.experience-cta h2 {
+    font-size: 2.2rem;
+    color: #2E7D32;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.cta-subtitle {
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-button.primary {
+    background: linear-gradient(90deg, #25a749, #4CAF50);
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 167, 73, 0.3);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 167, 73, 0.4);
+}
+
+.cta-button.secondary {
+    background: white;
+    color: #25a749;
+    border: 2px solid #25a749;
+}
+
+.cta-button.secondary:hover {
+    background: #f5f5f5;
+    transform: translateY(-3px);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+/* Decorative elements */
+.experience-cta::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, rgba(255,255,255,0) 70%);
+    z-index: 1;
+}
+
+@media (max-width: 992px) {
+    .experience-cta .container {
+        flex-direction: column;
+    }
+    
+    .cta-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .cta-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .cta-image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cta-button {
+        width: 100%;
+    }
+}
+
 /* Button Styles */
 .cta-button {
     display: inline-block;
