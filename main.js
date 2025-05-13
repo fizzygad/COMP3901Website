@@ -55,3 +55,19 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     btn.setAttribute('aria-expanded', !expanded);
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form    = document.getElementById('leadForm');
+  const thanks  = document.getElementById('thankYouMessage');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();                 // stop default nav / reload
+    form.style.display = 'none';        // hide the form
+    thanks.style.display = 'block';     // reveal thank-you pane
+
+    /* 👉  send the data to Netlify in the background */
+    const data = new FormData(form);
+    fetch('/', { method:'POST', body:data })
+      .catch(console.error);            // silent fail = still shows thank-you
+  });
+});
