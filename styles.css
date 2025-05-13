@@ -724,8 +724,6 @@ nav ul li a:hover, nav ul li a.active {
 
 .faq-answer.open { max-height: 800px; padding-bottom: 1rem; } 
 
-<<<<<<< HEAD
-=======
 /* Footer Styles */
 .site-footer {
     background: #2a3e2e; /* Dark green */
@@ -944,9 +942,7 @@ nav ul li a:hover, nav ul li a.active {
     }
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> 6d9390974bc6512c906de70bd46a6314a6163ab5
+
 .contact-content   {padding:4rem 1rem; }
 .contact-form.card {
   max-width:600px; margin:0 auto; background:#fff;
@@ -988,9 +984,3 @@ input:focus, select:focus, textarea:focus{
 
 @keyframes fadeIn{ from{opacity:0; transform:translateY(8px);}
                    to{opacity:1;  transform:translateY(0);} }
-<<<<<<< HEAD
-  
-=======
-  
->>>>>>> 7d91f27535e5328c03de397057ed2d43c5056faf
->>>>>>> 6d9390974bc6512c906de70bd46a6314a6163ab5
