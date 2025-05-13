@@ -154,7 +154,7 @@ nav ul li a:hover, nav ul li a.active {
     color: var(--secondary-color);
 }
 
-.feature-details h2, .use-cases h2 {
+.feature-details h2, .use-cases h2, .testimonials h2 {
     text-align: center;
     margin-bottom: 50px;
     font-size: 36px;
@@ -264,7 +264,7 @@ nav ul li a:hover, nav ul li a.active {
   }
 
 .green-oval{
-  width: 300px;                 /* exact width  */
+  width: 300px;                 
   height: 150px;
   display:flex;
   flex-direction:column;
@@ -278,39 +278,77 @@ nav ul li a:hover, nav ul li a.active {
 
 .icon{font-size:1rem;margin-bottom:.4rem;}
 
-/* 2 columns on desktop, collapses to 1 on narrow screens */
+
 .use-case-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);   /* 2 equal-width columns */
-  grid-template-rows:    repeat(2, auto);  /* 2 rows (height grows with content) */
-  gap: 2rem;                                /* space between cells */
-  max-width: 1000px;                        /* optional centering box */
-  margin: 0 auto;                           /* centers the grid on the page */
+  grid-template-columns: repeat(2, 1fr);   
+  grid-template-rows:    repeat(2, auto);  
+  gap: 2rem;                                
+  max-width: 1000px;                        
+  margin: 0 auto;                           
 }
 
-/* optional: center everything in each cell */
 .use-case{
   display: flex;
   justify-content: center;
 }
 
 .testimonial {
-  display: none;          /* start hidden       */
+  display: none;          
   text-align: center;
-}
-
-.testimonial.active {
-  display: block;         /* show current card  */
-}
-
-/* (optional) little fade-in */
-.testimonial {
   opacity: 0;
   transition: opacity .4s ease;
 }
-.testimonial.active { opacity: 1; }
+
+.testimonial.active {
+  display: block;   
+  opacity: 1;      
+}
 
 .testimonial-nav {
     align-content: center;
 }
+
+.testimonials {
+    padding: 10px 0;
+    background-color: var(--bg-light);
+}
+
+#faq { 
+    margin: 2rem auto; 
+    font-family: system-ui,sans-serif; 
+    background-color: #f0f0f0; 
+    padding: 10px 0;
+    background-color: var(--bg-light);
+}
+
+#faq h2 { 
+    text-align: center; 
+    margin-bottom: 1.5rem; 
+}
+
+.faq-item + .faq-item { 
+    border-top: 1px solid #ddd;
+}   /* divider */
+
+.faq-question{
+  width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; padding: 1.2rem 0;
+  font-size: 1.1rem; font-weight: 600; text-align: left; cursor: pointer;
+}
+
+.faq-question i { transition: transform .25s; }
+.faq-question[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.faq-answer{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+  line-height: 1.6;
+  padding-right: .5rem;         /* avoids text under icon */
+}
+
+.faq-answer.open { max-height: 800px; padding-bottom: 1rem; } /* big enough for any answer */
+
   

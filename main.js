@@ -38,3 +38,20 @@ document.querySelectorAll('.swap-btn').forEach(btn => {
     show(index);
   });
 });
+
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;        // the .faq-answer div
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // collapse all answers (one-open-at-a-time) – remove if you want multi-open
+    document.querySelectorAll('.faq-answer.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.setAttribute('aria-expanded','false');
+    });
+
+    // toggle current
+    if (!expanded) { answer.classList.add('open'); }
+    btn.setAttribute('aria-expanded', !expanded);
+  });
+});
