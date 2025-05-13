@@ -276,6 +276,12 @@ nav ul li a:hover, nav ul li a.active {
     text-align: center;
 }
 
+.results h2 {
+    text-align: center;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
 .section-subtitle {
     color: #6c757d;
     margin-bottom: 50px;
