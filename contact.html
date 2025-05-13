@@ -35,23 +35,26 @@
 
     <section class="contact-content">
         <div class="container">
-            <div class="contact-form">
+            <div class="contact-form card">          
                 <h2>Get In Touch</h2>
-                <p>Fill out the form below and our team will contact you to discuss your needs</p>
+                <p class="lead">Fill out the form below and our team will contact you to discuss your needs.</p>
                 
-                <form id="leadForm" netlify>
+                <form id="leadForm" data-netlify="true">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text"  id="name"  name="name"  required>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
+
                     <div class="form-group">
                         <label for="interest">I'm interested in</label>
                         <select id="interest" name="interest">
@@ -61,38 +64,40 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Tell us about your project<br></label>
                         <textarea id="message" name="message" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="cta-button">Submit Request</button>
+                    <button type="submit" class="form-button">Submit Request</button>
                 </form>
-                
+
                 <div id="thankYouMessage" class="thank-you-message">
                     <i class="fas fa-check-circle"></i>
-                    <h3>Thank You!</h3>
-                    <p>We've received your information and will contact you shortly.</p>
-                    <p>In the meantime, check out our <a href="features.html">How It Works</a> page to learn more.</p>
+                    <h3>Thank you!</h3>
+                    <p>We have received your information and will be in touch shortly.</p>
+                    <p class="mb-0">In the meantime, explore <a href="features.html">How It Works</a>.</p>
                 </div>
             </div>
         </div>
     </section>
+
         
     <section class="contact-info">
         <div class="container">
-            <h2>Other Ways to Reach Us</h2>
+            <h2><br>Other Ways to Reach Us</h2>
             <div class="contact-method">
                 <i class="fas fa-envelope"></i>
-                <p>info@smartgrow.com</p>
+                <span>info@smartgrow.com</span>
             </div>
+
             <div class="contact-method">
                 <i class="fas fa-phone"></i>
-                <p>+1 (555) 123-4567</p>
-                <p>Monday-Friday, 9am-5pm EST</p>
+                <span>+1 (555) 123-4567</span>
             </div>
             <div class="contact-method">
                 <i class="fas fa-map-marker-alt"></i>
-                <p>123 Greenway Blvd<br>AgriTech Park, NY 10001</p>
+                <span>123 Greenway Blvd<br>AgriTech Park, NY 10001</span>
             </div>
                     
             <div class="social-links">
