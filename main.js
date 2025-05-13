@@ -70,9 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/', { method:'POST', body:data })
       .catch(console.error);            // silent fail = still shows thank-you
   });
-<<<<<<< HEAD
-});
-=======
 });
 
 // Animate counting numbers
@@ -109,4 +106,3 @@ const observer = new IntersectionObserver((entries) => {
 
 const resultsSection = document.querySelector('.results');
 if (resultsSection) observer.observe(resultsSection);
->>>>>>> 6d9390974bc6512c906de70bd46a6314a6163ab5
