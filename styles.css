@@ -942,3 +942,44 @@ nav ul li a:hover, nav ul li a.active {
     }
 }
 
+.contact-content   {padding:4rem 1rem; }
+.contact-form.card {
+  max-width:600px; margin:0 auto; background:#fff;
+  border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.06);
+  padding:2.5rem;
+}
+
+.contact-form h2   { font-size:2rem; margin-bottom:.5rem; text-align:center; }
+.contact-form .lead{ text-align:center; margin-bottom:2rem; color:#555; }
+
+.form-group        { margin-bottom:1.35rem; }
+label              { display:block; font-weight:600; margin-bottom:.35rem; }
+
+input, select, textarea{
+  width:100%; padding:.8rem 1rem; font-size:1rem; border:1px solid #cfd8e3;
+  border-radius:6px; transition:border-color .2s, box-shadow .2s;
+}
+input:focus, select:focus, textarea:focus{
+  border-color:#25a749; outline:0;
+  box-shadow:0 0 0 3px rgba(37,167,73,.15);
+}
+
+.form-button{
+  display:block; width:100%;
+  background:#25a749; color:#fff; font-weight:600; font-size:1.05rem;
+  padding:.9rem 0; border:none; border-radius:6px; cursor:pointer;
+  transition:background .25s, transform .15s;
+}
+.form-button:hover     { background:#1e8d3d; }
+.form-button:active    { transform:scale(.97); }
+
+.thank-you-message{
+  display:none;             
+  text-align:center; margin-top:2rem; padding:1.8rem 1rem;
+  border-radius:8px; background:#e9f7ec; color:#155724;
+  animation:fadeIn .5s ease forwards;
+}
+.thank-you-message i{ color:#25a749; font-size:2.25rem; margin-bottom:.5rem; }
+
+@keyframes fadeIn{ from{opacity:0; transform:translateY(8px);}
+                   to{opacity:1;  transform:translateY(0);} }
