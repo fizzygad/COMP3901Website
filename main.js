@@ -106,3 +106,31 @@ const observer = new IntersectionObserver((entries) => {
 
 const resultsSection = document.querySelector('.results');
 if (resultsSection) observer.observe(resultsSection);
+
+// Image slideshow functionality
+function initSlideshow() {
+    const images = document.querySelectorAll('.slideshow-image');
+    let currentIndex = 0;
+    
+    function cycleImages() {
+        // Remove active class from all images
+        images.forEach(img => img.classList.remove('active'));
+        
+        // Move to next image
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Add active class to current image
+        images[currentIndex].classList.add('active');
+    }
+    
+    // Change image every 5 seconds (5000ms)
+    setInterval(cycleImages, 5000);
+    
+    // Initialize first image
+    if (images.length > 0) {
+        images[0].classList.add('active');
+    }
+}
+
+// Call the function when the page loads
+window.addEventListener('DOMContentLoaded', initSlideshow);
