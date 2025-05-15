@@ -109,27 +109,45 @@ if (resultsSection) observer.observe(resultsSection);
 
 // Image slideshow functionality
 function initSlideshow() {
-    const images = document.querySelectorAll('.slideshow-image');
-    let currentIndex = 0;
-    
-    function cycleImages() {
-        // Remove active class from all images
-        images.forEach(img => img.classList.remove('active'));
-        
-        // Move to next image
-        currentIndex = (currentIndex + 1) % images.length;
-        
-        // Add active class to current image
-        images[currentIndex].classList.add('active');
-    }
-    
-    // Change image every 5 seconds (5000ms)
-    setInterval(cycleImages, 5000);
-    
-    // Initialize first image
-    if (images.length > 0) {
-        images[0].classList.add('active');
-    }
+  const images = document.querySelectorAll('.slideshow-image');
+  const dotsContainer = document.querySelector('.slideshow-dots');
+  let dots = [];
+
+  if (!images.length) return;
+
+  let currentIndex = 0;
+  const total = images.length;
+
+  if (dotsContainer) {
+    images.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('slideshow-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        showSlide(i);
+      });
+      dotsContainer.appendChild(dot);
+    });
+    dots = dotsContainer.querySelectorAll('.slideshow-dot');
+  }
+
+  function showSlide(index) {
+    images.forEach(img => img.classList.remove('active'));
+    if (dots.length) dots.forEach(dot => dot.classList.remove('active'));
+
+    images[index].classList.add('active');
+    if (dots.length) dots[index].classList.add('active');
+
+    currentIndex = index;
+  }
+
+  function cycleImages() {
+    const nextIndex = (currentIndex + 1) % total;
+    showSlide(nextIndex);
+  }
+
+  setInterval(cycleImages, 7000);
+  showSlide(0);
 }
 
 // Call the function when the page loads

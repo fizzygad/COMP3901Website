@@ -113,6 +113,23 @@ nav ul li a:hover, nav ul li a.active {
     text-align: center;
 }
 
+.hero-slideshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;   
+  margin: 0 auto;      
+}
+
+.hero-slideshow .slideshow-wrapper {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.hero-slideshow .slideshow-dots {
+  margin-top: 12px;
+}
+
 .image-placeholder {
     width: 100%;
     height: 300px;
@@ -382,23 +399,56 @@ nav ul li a:hover, nav ul li a.active {
 
 .cta-image {
     position: relative;
-    height: 300px;
-    overflow: hidden;
+    height: 400px;
+    min-width: 300px;   /* force it to take up horizontal space */
+    flex: 1;             /* make it grow inside the flex container */
+}
+
+.slideshow-wrapper {
+  aspect-ratio: 16 / 9; /* or use 4 / 3 depending on your images */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .slideshow-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* changed from 'cover' */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .slideshow-image.active {
-    opacity: 1;
+  opacity: 1;
+}
+
+.slideshow-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 10px;
+}
+
+.slideshow-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb; /* gray for inactive */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slideshow-dot.active {
+  background-color: #25a749; /* green for active */
+}
+
+.slideshow-dot:hover {
+  background-color: #4CAF50;
 }
 
 .experience-cta h2 {
@@ -428,6 +478,7 @@ nav ul li a:hover, nav ul li a.active {
     font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .cta-button.primary {
@@ -450,17 +501,6 @@ nav ul li a:hover, nav ul li a.active {
 .cta-button.secondary:hover {
     background: #f5f5f5;
     transform: translateY(-3px);
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 300px;
-    background-color: #e0e0e0;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
 }
 
 /* Decorative elements */
@@ -573,12 +613,92 @@ nav ul li a:hover, nav ul li a.active {
     font-size: 48px;
 }
 
+.about-text h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    padding-right: 1rem; /* Creates breathing room */
+}
+
+/* For team highlights */
+.about-text p:last-of-type {
+    position: relative;
+    padding-left: 20px;
+}
+
+.about-text p:last-of-type::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
 .about-text,
 .about-image,
 .values-container {
   flex: 1 1 45%;
   min-width: 18rem;
-  text-align: center;     
+  text-align: center;   
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.values {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+.values-container h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.values-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.value-item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  padding: 25px 20px;
+  flex: 1 1 250px;
+  transition: transform 0.3s;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+}
+
+.value-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
 }
 
 .green-boxleft {
@@ -614,7 +734,6 @@ nav ul li a:hover, nav ul li a.active {
     font-size: 48px;
     margin-bottom: 20px;
 }
-
 
 .swap-btn {
     width: 100%;           
