@@ -107,48 +107,54 @@ const observer = new IntersectionObserver((entries) => {
 const resultsSection = document.querySelector('.results');
 if (resultsSection) observer.observe(resultsSection);
 
-// Image slideshow functionality
-function initSlideshow() {
-  const images = document.querySelectorAll('.slideshow-image');
-  const dotsContainer = document.querySelector('.slideshow-dots');
-  let dots = [];
+document.addEventListener('DOMContentLoaded', () => {
+  const images = [...document.querySelectorAll('.slideshow-image')];
+  const prevBtn  = document.querySelector('.slide-btn.prev');
+  const nextBtn  = document.querySelector('.slide-btn.next');
+  const dotsCt   = document.querySelector('.slideshow-dots');
+  if (!images.length) return;               // nothing to do
 
-  if (!images.length) return;
+  /* ── build dots ───────────────────────── */
+  images.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'slideshow-dot';
+    dot.addEventListener('click', () => gotoSlide(i, /*clicked=*/true));
+    dotsCt.appendChild(dot);
+  });
+  const dots = [...dotsCt.children];
 
-  let currentIndex = 0;
-  const total = images.length;
+  /* ── state ────────────────────────────── */
+  let index  = 0;
+  let timer  = null;
 
-  if (dotsContainer) {
-    images.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.classList.add('slideshow-dot');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        showSlide(i);
-      });
-      dotsContainer.appendChild(dot);
-    });
-    dots = dotsContainer.querySelectorAll('.slideshow-dot');
-  }
-
-  function showSlide(index) {
+  /* ── helpers ──────────────────────────── */
+  function setActive(idx){
     images.forEach(img => img.classList.remove('active'));
-    if (dots.length) dots.forEach(dot => dot.classList.remove('active'));
-
-    images[index].classList.add('active');
-    if (dots.length) dots[index].classList.add('active');
-
-    currentIndex = index;
+    dots.forEach(d   => d.classList.remove('active'));
+    images[idx].classList.add('active');
+    dots[idx].classList.add('active');
+    index = idx;
   }
 
-  function cycleImages() {
-    const nextIndex = (currentIndex + 1) % total;
-    showSlide(nextIndex);
+  function nextSlide(){ setActive( (index + 1) % images.length ); }
+
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(nextSlide, 7000);   // 7 s
+  }
+  function stopAuto(){ clearInterval(timer); }
+
+  // gotoSlide(target, clicked? ) – resets timer only if user clicked
+  function gotoSlide(i, clicked = false){
+    setActive( (i + images.length) % images.length );
+    if (clicked) startAuto();
   }
 
-  setInterval(cycleImages, 7000);
-  showSlide(0);
-}
+  /* ── wire buttons ─────────────────────── */
+  prevBtn.addEventListener('click', () => gotoSlide(index - 1, true));
+  nextBtn.addEventListener('click', () => gotoSlide(index + 1, true));
 
-// Call the function when the page loads
-window.addEventListener('DOMContentLoaded', initSlideshow);
+  /* ── kick things off ──────────────────── */
+  setActive(0);
+  startAuto();
+});
